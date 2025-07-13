@@ -32,5 +32,7 @@ def find_closest_unspsc(query: str, top_k=5):
         results.append((code, name, score))
     return results
 
-
-print(find_closest_unspsc("dog"))
+if __name__ == "__main__":
+    query = input("Enter an item to find UNSPSC code for: ")
+    predictions = find_closest_unspsc(query)
+    print(predictions)
