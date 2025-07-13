@@ -5,7 +5,7 @@ import numpy as np
 import pickle
 
 # Clean the dataset
-df = pd.read_csv("unspsc_commodity_codes_and_names.csv")  # or Excel, SQL, etc.
+df = pd.read_csv("unspsc_commodity_codes_and_names.csv", dtype={"unspsc_code": str})  # or Excel, SQL, etc.
 records = df[["unspsc_code", "item_name"]].dropna(
 ).drop_duplicates().to_records(index=False)
 
@@ -38,6 +38,6 @@ index.add(embeddings)
 # Store the index
 faiss.write_index(index, "unspsc_`index.faiss")
 
-# # Store the code to item mapping
-# with open("unspsc_lookup.pkl", "wb") as f:
-#     pickle.dump(code_name_pairs, f)
+# Store the code to item mapping
+with open("unspsc_lookup.pkl", "wb") as f:
+    pickle.dump(code_name_pairs, f)
