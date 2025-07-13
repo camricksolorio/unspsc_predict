@@ -17,3 +17,10 @@
 # for row in data[:5]:
 #     print(row)
 
+###
+
+# # 3) Ensure the unspsc_index returned by faiss has the expected number of vectors
+# import faiss
+# import numpy
+# index = faiss.read_index("unspsc_index.faiss")
+# print("Number of vectors in index:", index.ntotal)
